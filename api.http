@@ -5,7 +5,7 @@ http://localhost:4000/blocks
 POST http://localhost:4000/blocks
 
 {
-    "message": "awesome"
+    "message": "send 4th blocks"
 }
 ###
-http://localhost:4000/blocks/5
+http://localhost:4000/blocks/9439d8720672f47936652f1d5728af7ceb6ccfd32ac33570143fc45489a42ab0

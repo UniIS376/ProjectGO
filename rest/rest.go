@@ -2,6 +2,7 @@ package rest
 
 import (
 	"blockchaincoin/blockchain"
+	"blockchaincoin/utils"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -69,14 +70,12 @@ func documentation(rw http.ResponseWriter, r *http.Request) {
 func blocks(rw http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
-		return
-		//json.NewEncoder(rw).Encode(blockchain.GetBlockchain().AllBlocks())
+		json.NewEncoder(rw).Encode(blockchain.Blockchain().Blocks())
 	case "POST":
-		return
-		/* var addBlockBody addBlockBody
+		var addBlockBody addBlockBody
 		utils.HandleErr(json.NewDecoder(r.Body).Decode(&addBlockBody))
-		blockchain.GetBlockchain().AddBlock(addBlockBody.Message)
-		rw.WriteHeader(http.StatusCreated) */
+		blockchain.Blockchain().AddBlock(addBlockBody.Message)
+		rw.WriteHeader(http.StatusCreated)
 	}
 }
 

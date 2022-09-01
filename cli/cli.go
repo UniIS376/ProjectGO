@@ -1,20 +1,20 @@
 package cli
 
 import (
+	"blockchaincoin/explorer"
+	"blockchaincoin/rest"
 	"flag"
 	"fmt"
 	"os"
-	"blockchaincoin/rest"
-	"blockchaincoin/explorer"
+	"runtime"
 )
-
 
 func usage() {
 	fmt.Printf("Welcome to 김호윤 세상\n\n")
 	fmt.Printf("Please use the following flags:\n\n")
 	fmt.Printf("-port=4000:	 	Set the PORT of the server\n")
 	fmt.Printf("-mode=rest:		Choose between 'html and 'rest'\n\n")
-	os.Exit(0)
+	runtime.Goexit()
 }
 
 func Start() {
@@ -29,11 +29,11 @@ func Start() {
 
 	switch *mode {
 	case "rest":
-			rest.Start(*port)
+		rest.Start(*port)
 	case "html":
-			explorer.Start(*port)
+		explorer.Start(*port)
 	default:
-			usage()
+		usage()
 	}
 
 	fmt.Println(*port, *mode)
